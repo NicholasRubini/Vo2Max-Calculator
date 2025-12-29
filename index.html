@@ -1,0 +1,2595 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+    <title>VO2 Max Calculator | Nicholas Rubini</title>
+    <meta name="description" content="Calcola il tuo VO2 Max con precisione usando diversi metodi scientifici. Scopri il tuo livello di fitness aerobico.">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="VO2 Max">
+    <meta name="format-detection" content="telephone=no">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="data:application/json,%7B%22name%22%3A%22VO2%20Max%20Calculator%22%2C%22short_name%22%3A%22VO2%20Max%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%230a0a0a%22%2C%22theme_color%22%3A%22%230a0a0a%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage%2Fsvg%2Bxml%2C%253Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20100%20100%27%253E%253Crect%20fill%3D%27%25230a0a0a%27%20width%3D%27100%27%20height%3D%27100%27%2F%253E%253Ctext%20x%3D%2750%27%20y%3D%2765%27%20text-anchor%3D%27middle%27%20font-size%3D%2745%27%20fill%3D%27%2523c9a227%27%253EV%253C%2Ftext%253E%253C%2Fsvg%253E%22%2C%22sizes%22%3A%22any%22%2C%22type%22%3A%22image%2Fsvg%2Bxml%22%7D%5D%7D">
+    
+    <!-- iOS Icons -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230a0a0a' width='100' height='100' rx='22'/><text x='50' y='65' text-anchor='middle' font-size='45' font-weight='bold' fill='%23c9a227'>V</text></svg>">
+    
+    <!-- iOS Splash Screens -->
+    <link rel="apple-touch-startup-image" media="screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3)" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1290 2796'><rect fill='%230a0a0a' width='1290' height='2796'/><text x='645' y='1398' text-anchor='middle' font-size='200' font-weight='bold' fill='%23c9a227'>VO2</text></svg>">
+    <link rel="apple-touch-startup-image" media="screen and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3)" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1179 2556'><rect fill='%230a0a0a' width='1179' height='2556'/><text x='590' y='1278' text-anchor='middle' font-size='180' font-weight='bold' fill='%23c9a227'>VO2</text></svg>">
+    <link rel="apple-touch-startup-image" media="screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3)" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1284 2778'><rect fill='%230a0a0a' width='1284' height='2778'/><text x='642' y='1389' text-anchor='middle' font-size='200' font-weight='bold' fill='%23c9a227'>VO2</text></svg>">
+    <link rel="apple-touch-startup-image" media="screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3)" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1170 2532'><rect fill='%230a0a0a' width='1170' height='2532'/><text x='585' y='1266' text-anchor='middle' font-size='180' font-weight='bold' fill='%23c9a227'>VO2</text></svg>">
+    <link rel="apple-touch-startup-image" media="screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1125 2436'><rect fill='%230a0a0a' width='1125' height='2436'/><text x='563' y='1218' text-anchor='middle' font-size='170' font-weight='bold' fill='%23c9a227'>VO2</text></svg>">
+    <link rel="apple-touch-startup-image" media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1242 2688'><rect fill='%230a0a0a' width='1242' height='2688'/><text x='621' y='1344' text-anchor='middle' font-size='190' font-weight='bold' fill='%23c9a227'>VO2</text></svg>">
+    <link rel="apple-touch-startup-image" media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 828 1792'><rect fill='%230a0a0a' width='828' height='1792'/><text x='414' y='896' text-anchor='middle' font-size='130' font-weight='bold' fill='%23c9a227'>VO2</text></svg>">
+    <link rel="apple-touch-startup-image" media="screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 750 1334'><rect fill='%230a0a0a' width='750' height='1334'/><text x='375' y='667' text-anchor='middle' font-size='120' font-weight='bold' fill='%23c9a227'>VO2</text></svg>">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-card: #161616;
+            --bg-elevated: #1a1a1a;
+            --accent-gold: #c9a227;
+            --accent-gold-dim: rgba(201, 162, 39, 0.15);
+            --accent-gold-glow: rgba(201, 162, 39, 0.4);
+            --text-primary: #f5f5f5;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-active: rgba(201, 162, 39, 0.3);
+            
+            --level-poor: #ef4444;
+            --level-fair: #f97316;
+            --level-good: #eab308;
+            --level-excellent: #22c55e;
+            --level-elite: #c9a227;
+            
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            
+            --font-display: 'Cinzel', serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            
+            --transition-fast: 0.15s ease;
+            --transition-med: 0.3s ease;
+            
+            /* Safe areas */
+            --safe-top: env(safe-area-inset-top, 0px);
+            --safe-bottom: env(safe-area-inset-bottom, 0px);
+            --safe-left: env(safe-area-inset-left, 0px);
+            --safe-right: env(safe-area-inset-right, 0px);
+            
+            /* Touch targets */
+            --touch-min: 44px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+        }
+        
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            min-height: 100dvh;
+            line-height: 1.5;
+            overflow-x: hidden;
+            overscroll-behavior: none;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            user-select: none;
+            -webkit-user-select: none;
+            padding-top: var(--safe-top);
+            padding-left: var(--safe-left);
+            padding-right: var(--safe-right);
+        }
+        
+        /* Allow text selection on inputs and text content */
+        input, textarea, .info-text, .tips-list, .percentile-value, .disclaimer-text {
+            user-select: text;
+            -webkit-user-select: text;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 50% 0%, rgba(201, 162, 39, 0.03) 0%, transparent 50%),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        /* Standalone PWA mode adjustments */
+        @media all and (display-mode: standalone) {
+            body {
+                padding-top: var(--safe-top);
+            }
+            
+            .lang-toggle {
+                top: calc(16px + var(--safe-top));
+            }
+        }
+        
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 0 16px;
+            padding-bottom: calc(20px + var(--safe-bottom));
+            touch-action: pan-y;
+        }
+        
+        header {
+            padding: 24px 0 20px;
+            text-align: center;
+        }
+        
+        .logo-rune {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 16px;
+            opacity: 0.9;
+        }
+        
+        .logo-rune svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        h1 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        
+        h1 .highlight {
+            color: var(--accent-gold);
+        }
+        
+        .subtitle {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        
+        .progress-container {
+            padding: 16px 0 24px;
+        }
+        
+        .progress-steps {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .progress-step {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            min-width: var(--touch-min);
+            min-height: var(--touch-min);
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 2px solid var(--border-subtle);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: all var(--transition-med);
+        }
+        
+        .progress-step.active {
+            background: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: var(--bg-primary);
+            box-shadow: 0 0 20px var(--accent-gold-glow);
+        }
+        
+        .progress-step.completed {
+            background: var(--bg-elevated);
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+        
+        .progress-line {
+            width: 40px;
+            height: 2px;
+            background: var(--border-subtle);
+            transition: background var(--transition-med);
+        }
+        
+        .progress-line.active {
+            background: var(--accent-gold);
+        }
+        
+        .progress-label {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 24px 20px;
+            margin-bottom: 16px;
+        }
+        
+        .info-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+        
+        .info-card-title {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+            letter-spacing: 0.03em;
+        }
+        
+        .info-card-subtitle {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 16px 0 10px 0;
+        }
+        
+        .info-card-text {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .info-card-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .info-card-list li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 8px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        
+        .info-card-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 6px;
+            height: 6px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+        }
+        
+        .card-title {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--accent-gold);
+            margin-bottom: 4px;
+            letter-spacing: 0.03em;
+        }
+        
+        .card-subtitle {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .form-row.single {
+            grid-template-columns: 1fr;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+        
+        .form-input {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            padding: 14px 16px;
+            font-size: 16px; /* Prevents iOS zoom */
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            transition: all var(--transition-fast);
+            -webkit-appearance: none;
+            appearance: none;
+            min-height: var(--touch-min);
+            touch-action: manipulation;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px var(--accent-gold-dim);
+        }
+        
+        .form-input::placeholder {
+            color: var(--text-muted);
+        }
+        
+        .form-input.input-error {
+            border-color: var(--level-poor);
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+        }
+        
+        .form-input.warning {
+            border-color: var(--level-fair);
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+        }
+        
+        .input-warning {
+            font-size: 0.75rem;
+            color: var(--level-fair);
+            margin-top: 6px;
+            display: none;
+        }
+        
+        .input-warning.show {
+            display: block;
+        }
+        
+        .field-error {
+            font-size: 0.75rem;
+            color: var(--level-poor);
+            margin-top: 6px;
+            display: none;
+        }
+        
+        .field-error.show {
+            display: block;
+        }
+        
+        select.form-input {
+            cursor: pointer;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            padding-right: 40px;
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            min-height: var(--touch-min);
+            min-width: var(--touch-min);
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            transition: all var(--transition-fast);
+            flex: 1;
+        }
+        
+        .radio-option:active {
+            transform: scale(0.98);
+        }
+        
+        .radio-option.selected {
+            border-color: var(--accent-gold);
+            background: var(--accent-gold-dim);
+        }
+        
+        .radio-option input {
+            display: none;
+        }
+        
+        .radio-custom {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-fast);
+            flex-shrink: 0;
+        }
+        
+        .radio-option input:checked + .radio-custom {
+            border-color: var(--accent-gold);
+        }
+        
+        .radio-option input:checked + .radio-custom::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+        }
+        
+        .radio-label {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+        
+        .tab-container {
+            display: flex;
+            background: var(--bg-primary);
+            border-radius: var(--radius-sm);
+            padding: 4px;
+            margin-bottom: 20px;
+            gap: 4px;
+        }
+        
+        .tab-btn {
+            flex: 1;
+            padding: 12px 6px;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 500;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            min-height: var(--touch-min);
+            touch-action: manipulation;
+        }
+        
+        .tab-btn:active {
+            transform: scale(0.98);
+        }
+        
+        .tab-btn.active {
+            background: var(--bg-elevated);
+            color: var(--text-primary);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .time-inputs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+        
+        .time-group {
+            text-align: center;
+        }
+        
+        .time-group .form-label {
+            margin-bottom: 6px;
+        }
+        
+        .time-group .form-input {
+            text-align: center;
+            padding: 14px 8px;
+        }
+        
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 16px 24px;
+            border: none;
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            min-height: 52px;
+            touch-action: manipulation;
+        }
+        
+        .btn:active {
+            transform: scale(0.98);
+        }
+        
+        .btn-primary {
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+        }
+        
+        .btn-primary:hover {
+            background: #d4ad2d;
+        }
+        
+        @media (hover: hover) {
+            .btn-primary:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 4px 20px var(--accent-gold-glow);
+            }
+        }
+        
+        .btn-secondary {
+            background: var(--bg-elevated);
+            color: var(--text-primary);
+            border: 1px solid var(--border-subtle);
+        }
+        
+        @media (hover: hover) {
+            .btn-secondary:hover {
+                border-color: var(--accent-gold);
+                color: var(--accent-gold);
+            }
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+        
+        .btn-group .btn {
+            flex: 1;
+        }
+        
+        .btn-back {
+            flex: 0 0 auto;
+            width: auto;
+            padding: 16px 20px;
+            min-width: 52px;
+        }
+        
+        .result-gauge {
+            position: relative;
+            width: 220px;
+            height: 160px;
+            margin: 0 auto 12px;
+        }
+        
+        .gauge-bg, .gauge-fill {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 130px;
+        }
+        
+        .gauge-value {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            width: 100%;
+        }
+        
+        .gauge-number {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1;
+            color: var(--text-primary);
+        }
+        
+        .gauge-unit {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+        
+        .gauge-type {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 4px;
+            font-size: 0.7rem;
+            color: var(--accent-gold);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .tooltip-trigger {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            padding: 0;
+            background: transparent;
+            border: 1px solid var(--accent-gold);
+            border-radius: 50%;
+            color: var(--accent-gold);
+            cursor: pointer;
+            opacity: 0.7;
+            transition: all var(--transition-fast);
+        }
+        
+        .tooltip-trigger:active {
+            transform: scale(0.9);
+            opacity: 1;
+        }
+        
+        .tooltip-popup {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-active);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            padding-right: 36px;
+            margin: 0 0 20px 0;
+            position: relative;
+            animation: fadeIn 0.2s ease;
+        }
+        
+        .tooltip-popup p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        .tooltip-close {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.25rem;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        
+        .tooltip-close:active {
+            background: var(--bg-primary);
+        }
+        
+        .vo2-absolute {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+        
+        .result-category {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        
+        .category-badge {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 24px;
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            min-height: var(--touch-min);
+        }
+        
+        .category-poor { background: rgba(239, 68, 68, 0.15); color: var(--level-poor); }
+        .category-fair { background: rgba(249, 115, 22, 0.15); color: var(--level-fair); }
+        .category-good { background: rgba(234, 179, 8, 0.15); color: var(--level-good); }
+        .category-excellent { background: rgba(34, 197, 94, 0.15); color: var(--level-excellent); }
+        .category-elite { background: var(--accent-gold-dim); color: var(--level-elite); }
+        
+        .previous-result {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            padding: 14px;
+            background: var(--bg-primary);
+            border-radius: var(--radius-sm);
+            margin-bottom: 20px;
+        }
+        
+        .previous-result-main {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+        }
+        
+        .previous-result-hint {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+        
+        .previous-delta {
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 6px;
+            min-height: 28px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .previous-delta.positive {
+            background: rgba(34, 197, 94, 0.15);
+            color: var(--level-excellent);
+        }
+        
+        .previous-delta.negative {
+            background: rgba(239, 68, 68, 0.15);
+            color: var(--level-poor);
+        }
+        
+        .percentile-bar {
+            background: var(--bg-primary);
+            border-radius: var(--radius-sm);
+            padding: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .percentile-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+        
+        .percentile-track {
+            height: 10px;
+            background: var(--bg-elevated);
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .percentile-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--level-poor), var(--level-fair), var(--level-good), var(--level-excellent), var(--level-elite));
+            border-radius: 5px;
+        }
+        
+        .percentile-marker {
+            position: absolute;
+            top: -5px;
+            width: 20px;
+            height: 20px;
+            background: var(--text-primary);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            transition: left 1s ease-out;
+        }
+        
+        .percentile-value {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 0.9rem;
+        }
+        
+        .percentile-value strong {
+            color: var(--accent-gold);
+        }
+        
+        .disclaimer-box {
+            background: var(--bg-primary);
+            border-radius: var(--radius-sm);
+            padding: 14px 16px;
+            margin-bottom: 20px;
+        }
+        
+        .disclaimer-text {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        .disclaimer-text + .disclaimer-text {
+            margin-top: 4px;
+        }
+        
+        .info-section {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-subtle);
+        }
+        
+        .info-title {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            color: var(--accent-gold);
+            margin-bottom: 12px;
+            letter-spacing: 0.03em;
+        }
+        
+        .info-text {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .tips-list {
+            list-style: none;
+        }
+        
+        .tips-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            min-height: 24px;
+        }
+        
+        .tips-list li::before {
+            content: '᛫';
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+        
+        .predictions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 12px;
+        }
+        
+        .prediction-card {
+            background: var(--bg-primary);
+            border-radius: var(--radius-sm);
+            padding: 16px 14px;
+            text-align: center;
+        }
+        
+        .prediction-distance {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 6px;
+        }
+        
+        .prediction-time {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            color: var(--text-primary);
+        }
+        
+        .prediction-pace {
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+        
+        .sport-item {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        
+        .sport-item:last-child {
+            border-bottom: none;
+        }
+        
+        .sport-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            min-height: 28px;
+        }
+        
+        .sport-name {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        
+        .sport-level {
+            font-size: 0.7rem;
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+        
+        .level-below { background: rgba(239, 68, 68, 0.15); color: var(--level-poor); }
+        .level-amateur { background: rgba(249, 115, 22, 0.15); color: var(--level-fair); }
+        .level-intermediate { background: rgba(234, 179, 8, 0.15); color: var(--level-good); }
+        .level-advanced { background: rgba(34, 197, 94, 0.15); color: var(--level-excellent); }
+        .level-pro { background: var(--accent-gold-dim); color: var(--level-elite); }
+        
+        .sport-bar {
+            height: 8px;
+            background: var(--bg-primary);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .sport-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.8s ease-out;
+        }
+        
+        .target-card {
+            background: var(--bg-primary);
+            border-radius: var(--radius-sm);
+            padding: 18px 16px;
+            margin-bottom: 12px;
+        }
+        
+        .target-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .target-level {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        
+        .target-vo2 {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        
+        .target-time {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--accent-gold);
+        }
+        
+        .target-diff {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+        
+        .share-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-subtle);
+        }
+        
+        .btn-share {
+            background: linear-gradient(135deg, #833AB4, #FD1D1D, #F77737);
+            color: white;
+        }
+        
+        @media (hover: hover) {
+            .btn-share:hover {
+                opacity: 0.9;
+                transform: translateY(-1px);
+            }
+        }
+        
+        .step {
+            display: none;
+        }
+        
+        .step.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+        
+        .lang-toggle {
+            position: fixed;
+            top: calc(16px + var(--safe-top));
+            right: calc(16px + var(--safe-right));
+            z-index: 100;
+        }
+        
+        .lang-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 14px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            min-height: var(--touch-min);
+            min-width: var(--touch-min);
+            touch-action: manipulation;
+        }
+        
+        .lang-btn:active {
+            transform: scale(0.95);
+            background: var(--bg-elevated);
+        }
+        
+        @media (hover: hover) {
+            .lang-btn:hover {
+                border-color: var(--accent-gold);
+                color: var(--text-primary);
+            }
+        }
+        
+        .install-prompt {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-subtle);
+            padding: 16px;
+            padding-bottom: calc(16px + var(--safe-bottom));
+            padding-left: calc(16px + var(--safe-left));
+            padding-right: calc(16px + var(--safe-right));
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .install-prompt.show {
+            transform: translateY(0);
+        }
+        
+        .install-prompt-content {
+            max-width: 480px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .install-prompt-text {
+            flex: 1;
+        }
+        
+        .install-prompt-title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 2px;
+        }
+        
+        .install-prompt-desc {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+        
+        .install-prompt-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .install-btn {
+            padding: 12px 18px;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            font-family: var(--font-body);
+            min-height: var(--touch-min);
+            touch-action: manipulation;
+        }
+        
+        .install-btn:active {
+            transform: scale(0.95);
+        }
+        
+        .install-btn-primary {
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+        }
+        
+        .install-btn-secondary {
+            background: transparent;
+            color: var(--text-secondary);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 32px 0;
+            margin-top: 20px;
+        }
+        
+        .footer-brand {
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 0.1em;
+        }
+        
+        .footer-brand a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            padding: 8px;
+            display: inline-block;
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        .correction-note {
+            background: var(--accent-gold-dim);
+            border-left: 3px solid var(--accent-gold);
+            padding: 10px 14px;
+            margin-bottom: 16px;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            font-size: 0.75rem;
+            color: var(--accent-gold);
+        }
+        
+        /* Larger screens */
+        /* Small screens (iPhone SE, mini) */
+        @media (max-width: 375px) {
+            .container {
+                padding: 0 12px;
+            }
+            
+            .card {
+                padding: 20px 16px;
+            }
+            
+            .info-card {
+                padding: 16px;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .subtitle {
+                font-size: 0.8rem;
+            }
+            
+            .gauge-number {
+                font-size: 2.5rem;
+            }
+            
+            .gauge-type {
+                font-size: 0.65rem;
+                gap: 4px;
+            }
+            
+            .tooltip-trigger {
+                width: 18px;
+                height: 18px;
+            }
+            
+            .predictions-grid {
+                gap: 8px;
+            }
+            
+            .prediction-card {
+                padding: 12px 10px;
+            }
+            
+            .tab-btn {
+                font-size: 0.7rem;
+                padding: 10px 4px;
+            }
+            
+            .btn {
+                padding: 14px 20px;
+            }
+            
+            .form-input {
+                padding: 12px 14px;
+            }
+        }
+        
+        /* Larger screens */
+        @media (min-width: 600px) {
+            .container {
+                padding-top: 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .card {
+                padding: 32px;
+            }
+            
+            .info-card {
+                padding: 24px;
+            }
+        }
+        
+        /* Reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            :root {
+                --border-subtle: rgba(255, 255, 255, 0.3);
+            }
+        }
+        
+        /* Landscape mode on phones */
+        @media (max-height: 500px) and (orientation: landscape) {
+            header {
+                padding: 12px 0;
+            }
+            
+            .logo-rune {
+                width: 32px;
+                height: 32px;
+                margin-bottom: 8px;
+            }
+            
+            .progress-container {
+                padding: 8px 0 16px;
+            }
+            
+            .result-gauge {
+                width: 180px;
+                height: 140px;
+            }
+            
+            .gauge-bg, .gauge-fill {
+                height: 110px;
+            }
+            
+            .gauge-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="lang-toggle lang-btn" onclick="toggleLanguage()" aria-label="Cambia lingua">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+        <span id="langLabel">EN</span>
+    </button>
+    
+    <div class="container">
+        <header>
+            <div class="logo-rune" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 4L24 44M24 4L12 16M24 4L36 16M24 24L12 36M24 24L36 36" 
+                          stroke="#c9a227" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="24" cy="24" r="22" stroke="#c9a227" stroke-width="1.5" opacity="0.3"/>
+                </svg>
+            </div>
+            <h1><span class="highlight">VO2</span> MAX</h1>
+            <p class="subtitle" data-i18n="subtitle">Misura la tua capacità aerobica massima</p>
+        </header>
+        
+        <div class="progress-container" role="navigation" aria-label="Progresso">
+            <div class="progress-steps">
+                <div class="progress-step active" id="step1-indicator" aria-current="step">1</div>
+                <div class="progress-line" id="line1" aria-hidden="true"></div>
+                <div class="progress-step" id="step2-indicator">2</div>
+                <div class="progress-line" id="line2" aria-hidden="true"></div>
+                <div class="progress-step" id="step3-indicator">3</div>
+            </div>
+            <p class="progress-label" id="progressLabel" data-i18n="step1Label">Dati Personali</p>
+        </div>
+        
+        <!-- Step 1 -->
+        <div class="step active" id="step1" role="form" aria-labelledby="step1-title">
+            <div class="card">
+                <h2 class="card-title" id="step1-title" data-i18n="personalInfo">Informazioni Personali</h2>
+                <p class="card-subtitle" data-i18n="personalInfoSub">Inserisci i tuoi dati per una stima accurata</p>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="age" data-i18n="age">Età</label>
+                        <input type="number" class="form-input" id="age" placeholder="35" min="10" max="100" inputmode="numeric" autocomplete="off">
+                        <p class="field-error" id="ageError" role="alert"></p>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" data-i18n="sex">Sesso</label>
+                        <div class="radio-group" role="radiogroup">
+                            <label class="radio-option selected" id="radio-male">
+                                <input type="radio" name="sex" value="male" checked>
+                                <span class="radio-custom"></span>
+                                <span class="radio-label" data-i18n="male">M</span>
+                            </label>
+                            <label class="radio-option" id="radio-female">
+                                <input type="radio" name="sex" value="female">
+                                <span class="radio-custom"></span>
+                                <span class="radio-label" data-i18n="female">F</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row single">
+                    <div class="form-group">
+                        <label class="form-label" for="weight" data-i18n="weightOptional">Peso (kg) - opzionale</label>
+                        <input type="number" class="form-input" id="weight" placeholder="75" min="30" max="250" inputmode="decimal" autocomplete="off">
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary" onclick="goToStep(2)" type="button">
+                    <span data-i18n="next">Avanti</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="info-card">
+                <h3 class="info-card-title" data-i18n="whatIsVo2">Cos'è il VO2 Max?</h3>
+                <p class="info-card-text" data-i18n="whatIsVo2Desc">Il VO2 Max rappresenta la massima quantità di ossigeno che il tuo corpo può utilizzare durante l'esercizio intenso. È considerato il gold standard per misurare la capacità aerobica e la salute cardiovascolare.</p>
+                
+                <h4 class="info-card-subtitle" data-i18n="whyMeasure">Perché misurarlo?</h4>
+                <ul class="info-card-list">
+                    <li data-i18n="whyMeasure1">Indicatore chiave di longevità e salute cardiovascolare</li>
+                    <li data-i18n="whyMeasure2">Permette di programmare allenamenti più efficaci</li>
+                    <li data-i18n="whyMeasure3">Consente di monitorare i progressi nel tempo</li>
+                    <li data-i18n="whyMeasure4">Predice le performance nelle gare di endurance</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Step 2 -->
+        <div class="step" id="step2" role="form" aria-labelledby="step2-title">
+            <div class="card">
+                <h2 class="card-title" id="step2-title" data-i18n="selectMethod">Metodo di Test</h2>
+                <p class="card-subtitle" data-i18n="selectMethodSub">Scegli come vuoi stimare il tuo VO2 max</p>
+                
+                <div class="tab-container" role="tablist">
+                    <button class="tab-btn active" onclick="switchMethod('cooper')" data-i18n="cooperTest" role="tab" aria-selected="true">Test di Cooper</button>
+                    <button class="tab-btn" onclick="switchMethod('race')" data-i18n="raceTime" role="tab" aria-selected="false">Tempo Gara</button>
+                </div>
+                
+                <div class="tab-content active" id="method-cooper" role="tabpanel">
+                    <p class="info-text" style="margin-bottom: 16px;" data-i18n="cooperDesc">
+                        Corri per 12 minuti alla massima velocità sostenibile e inserisci la distanza percorsa.
+                    </p>
+                    <div class="form-row single">
+                        <div class="form-group">
+                            <label class="form-label" for="cooperDistance" data-i18n="distance">Distanza (metri)</label>
+                            <input type="number" class="form-input" id="cooperDistance" placeholder="2400" min="500" max="5000" inputmode="numeric" onchange="validateCooper()" oninput="clearFieldError(this)" autocomplete="off">
+                            <p class="input-warning" id="cooperWarning" data-i18n="cooperWarning">Distanza eccezionale! Il record mondiale è circa 3800m. Verifica il valore inserito.</p>
+                            <p class="field-error" id="cooperDistanceError" role="alert"></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="method-race" role="tabpanel">
+                    <p class="info-text" style="margin-bottom: 16px;" data-i18n="raceDesc">
+                        Inserisci il tuo miglior tempo recente su una delle distanze standard.
+                    </p>
+                    <div class="form-row single">
+                        <div class="form-group">
+                            <label class="form-label" for="raceDistance" data-i18n="raceDistance">Distanza di Gara</label>
+                            <select class="form-input" id="raceDistance" onchange="validateRaceTime()">
+                                <option value="1500">1500m</option>
+                                <option value="1609">1 Miglio</option>
+                                <option value="3000">3000m</option>
+                                <option value="5000" selected>5K</option>
+                                <option value="10000">10K</option>
+                                <option value="21097">Mezza Maratona</option>
+                                <option value="42195">Maratona</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" data-i18n="time">Tempo</label>
+                        <div class="time-inputs">
+                            <div class="time-group">
+                                <label class="form-label" for="raceHours" data-i18n="hours">Ore</label>
+                                <input type="number" class="form-input" id="raceHours" value="" placeholder="0" min="0" max="10" inputmode="numeric" onchange="validateRaceTime()" oninput="clearTimeGroupError()" autocomplete="off">
+                            </div>
+                            <div class="time-group">
+                                <label class="form-label" for="raceMinutes" data-i18n="minutes">Min</label>
+                                <input type="number" class="form-input" id="raceMinutes" value="" placeholder="mm" min="0" max="59" inputmode="numeric" onchange="validateRaceTime()" oninput="clearTimeGroupError()" autocomplete="off">
+                            </div>
+                            <div class="time-group">
+                                <label class="form-label" for="raceSeconds" data-i18n="seconds">Sec</label>
+                                <input type="number" class="form-input" id="raceSeconds" value="" placeholder="ss" min="0" max="59" inputmode="numeric" onchange="validateRaceTime()" oninput="clearTimeGroupError()" autocomplete="off">
+                            </div>
+                        </div>
+                        <p class="input-warning" id="raceWarning" data-i18n="raceWarning">Tempo eccezionale! Verifica che sia corretto.</p>
+                        <p class="field-error" id="raceTimeError" role="alert"></p>
+                    </div>
+                </div>
+                
+                <div class="btn-group">
+                    <button class="btn btn-secondary btn-back" onclick="goToStep(1)" type="button" aria-label="Indietro">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M15 18l-6-6 6-6"/>
+                        </svg>
+                    </button>
+                    <button class="btn btn-primary" onclick="calculateVO2()" type="button">
+                        <span data-i18n="calculate">Calcola VO2 Max</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Step 3 -->
+        <div class="step" id="step3" aria-labelledby="result-title">
+            <div class="card">
+                <div class="tab-container" role="tablist">
+                    <button class="tab-btn active" onclick="switchResultTab('indicator')" data-i18n="indicator" role="tab" aria-selected="true">Risultato</button>
+                    <button class="tab-btn" onclick="switchResultTab('predictions')" data-i18n="predictions" role="tab" aria-selected="false">Tempi</button>
+                    <button class="tab-btn" onclick="switchResultTab('sports')" data-i18n="sports" role="tab" aria-selected="false">Sport</button>
+                    <button class="tab-btn" onclick="switchResultTab('targets')" data-i18n="targets" role="tab" aria-selected="false">Obiettivi</button>
+                </div>
+                
+                <div class="tab-content active" id="result-indicator" role="tabpanel">
+                    <div class="previous-result hidden" id="previousResult">
+                        <div class="previous-result-main">
+                            <span data-i18n="previousResult">Rispetto al test precedente:</span>
+                            <span class="previous-delta" id="previousDelta"></span>
+                        </div>
+                        <div class="previous-result-hint" data-i18n="previousResultHint">Confronta test fatti con lo stesso metodo e condizioni simili.</div>
+                    </div>
+                    
+                    <div class="result-gauge" role="img" aria-label="Indicatore VO2 Max">
+                        <svg class="gauge-bg" viewBox="0 0 220 130" aria-hidden="true">
+                            <path d="M 20 120 A 90 90 0 0 1 200 120" fill="none" stroke="#1a1a1a" stroke-width="16" stroke-linecap="round"/>
+                        </svg>
+                        <svg class="gauge-fill" viewBox="0 0 220 130" aria-hidden="true">
+                            <path id="gaugeFill" d="M 20 120 A 90 90 0 0 1 200 120" fill="none" stroke="url(#gaugeGradient)" stroke-width="16" stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="283"/>
+                            <defs>
+                                <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#ef4444"/>
+                                    <stop offset="25%" stop-color="#f97316"/>
+                                    <stop offset="50%" stop-color="#eab308"/>
+                                    <stop offset="75%" stop-color="#22c55e"/>
+                                    <stop offset="100%" stop-color="#c9a227"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="gauge-value">
+                            <div class="gauge-number" id="vo2Value" aria-live="polite">--</div>
+                            <div class="gauge-unit">ml/kg/min</div>
+                            <div class="gauge-type" id="gaugeType">
+                                <span id="vo2TypeLabel">VO2 Max</span>
+                                <button class="tooltip-trigger" id="tooltipTrigger" type="button" aria-label="Info">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <path d="M12 16v-4M12 8h.01"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="vo2-absolute hidden" id="vo2Absolute" aria-live="polite"></div>
+                    
+                    <div class="tooltip-popup hidden" id="tooltipPopup" role="tooltip">
+                        <p id="tooltipText"></p>
+                        <button class="tooltip-close" onclick="closeTooltip()" type="button" aria-label="Chiudi">×</button>
+                    </div>
+                    
+                    <div class="result-category">
+                        <span class="category-badge" id="categoryBadge" aria-live="polite">--</span>
+                    </div>
+                    
+                    <div class="percentile-bar">
+                        <div class="percentile-label">
+                            <span data-i18n="belowAvg">Sotto Media</span>
+                            <span data-i18n="elite">Elite</span>
+                        </div>
+                        <div class="percentile-track">
+                            <div class="percentile-fill" style="width: 100%"></div>
+                            <div class="percentile-marker" id="percentileMarker" style="left: 50%"></div>
+                        </div>
+                        <p class="percentile-value" id="percentileText" aria-live="polite"></p>
+                    </div>
+                    
+                    <div class="disclaimer-box">
+                        <p class="disclaimer-text" data-i18n="disclaimerEstimate">Stima: non sostituisce un test di laboratorio.</p>
+                        <p class="disclaimer-text" data-i18n="disclaimerPrivacy">I risultati vengono salvati solo sul tuo dispositivo.</p>
+                    </div>
+                    
+                    <div class="info-section" style="margin-top: 0; padding-top: 0; border-top: none;">
+                        <h3 class="info-title" data-i18n="whatMeans">Cosa significa?</h3>
+                        <p class="info-text" data-i18n="vo2Explanation">Il VO2 max è il massimo volume di ossigeno che il tuo corpo può utilizzare durante l'esercizio intenso. È l'indicatore più affidabile della tua capacità aerobica.</p>
+                    </div>
+                    
+                    <div class="info-section">
+                        <h3 class="info-title" data-i18n="howImprove">Come migliorare</h3>
+                        <ul class="tips-list">
+                            <li data-i18n="tip1">Allenamento intervallato ad alta intensità (HIIT)</li>
+                            <li data-i18n="tip2">Corse lunghe a bassa intensità (Zone 2)</li>
+                            <li data-i18n="tip3">Tempo run a soglia del lattato</li>
+                            <li data-i18n="tip4">Progressione graduale del volume settimanale</li>
+                            <li data-i18n="tip5">Cross-training con ciclismo o nuoto</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="result-predictions" role="tabpanel">
+                    <h3 class="info-title" data-i18n="racePredictions">Tempi Gara Previsti</h3>
+                    <p class="info-text" style="margin-bottom: 16px;" data-i18n="predictionsDesc">Basati sul tuo VO2 max, ecco i tempi stimati:</p>
+                    <div class="predictions-grid" id="predictionsGrid"></div>
+                    <p class="info-text" style="margin-top: 16px; font-size: 0.75rem; opacity: 0.7;" data-i18n="predictionsNote">Le predizioni assumono condizioni ottimali e allenamento specifico.</p>
+                </div>
+                
+                <div class="tab-content" id="result-sports" role="tabpanel">
+                    <p class="info-text" style="margin-bottom: 16px;" data-i18n="sportsDesc">Confronto con i requisiti medi per diversi sport:</p>
+                    <div class="correction-note hidden" id="sportsCorrectionNote">
+                        <span data-i18n="sportsCorrectionNote">Valore corretto +12% per confronto con benchmark di laboratorio.</span>
+                    </div>
+                    <div id="sportsList"></div>
+                    <p class="info-text" style="margin-top: 16px; font-size: 0.75rem; opacity: 0.7;" data-i18n="sportsNote">I valori variano in base al ruolo e livello.</p>
+                </div>
+                
+                <div class="tab-content" id="result-targets" role="tabpanel">
+                    <p class="info-text" style="margin-bottom: 16px;" data-i18n="targetsDesc">Tempi obiettivo per raggiungere il livello successivo:</p>
+                    <div id="targetsList"></div>
+                </div>
+                
+                <div class="share-section">
+                    <button class="btn btn-share" onclick="shareResults()" type="button">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/>
+                            <path d="M12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8z"/>
+                            <circle cx="18.406" cy="5.594" r="1.44"/>
+                        </svg>
+                        <span data-i18n="shareIG">Condividi su Instagram</span>
+                    </button>
+                </div>
+                
+                <div class="btn-group">
+                    <button class="btn btn-secondary" onclick="resetCalculator()" type="button">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M1 4v6h6M23 20v-6h-6"/>
+                            <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/>
+                        </svg>
+                        <span data-i18n="recalculate">Nuovo Calcolo</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p class="footer-brand">By <a href="https://nicholasrubini.it" target="_blank" rel="noopener">NicholasRubini</a></p>
+        </footer>
+    </div>
+    
+    <div class="install-prompt" id="installPrompt" role="dialog" aria-labelledby="install-title">
+        <div class="install-prompt-content">
+            <div class="install-prompt-text">
+                <div class="install-prompt-title" id="install-title" data-i18n="installTitle">Installa l'App</div>
+                <div class="install-prompt-desc" data-i18n="installDesc">Aggiungi alla home per accesso rapido</div>
+            </div>
+            <div class="install-prompt-buttons">
+                <button class="install-btn install-btn-secondary" onclick="dismissInstall()" data-i18n="notNow" type="button">Non ora</button>
+                <button class="install-btn install-btn-primary" onclick="installApp()" data-i18n="install" type="button">Installa</button>
+            </div>
+        </div>
+    </div>
+    
+    <canvas id="shareCanvas" style="display: none;" aria-hidden="true"></canvas>
+    
+    <script>
+        // Constants
+        const VO2_MAX = 90;
+        
+        // State
+        let currentStep = 1;
+        let currentMethod = 'cooper';
+        let currentResultTab = 'indicator';
+        let calculatedVO2 = 0;
+        let currentLang = 'it';
+        let deferredPrompt = null;
+        let userAge = 0;
+        let userSex = 'male';
+        let userWeight = 0;
+        let nextLevelTarget = null;
+        let testMethodInfo = { method: '', value: '' };
+        
+        // Race distance labels
+        const raceDistanceLabels = {
+            it: {
+                1500: '1500m',
+                1609: '1 Miglio',
+                3000: '3000m',
+                5000: '5K',
+                10000: '10K',
+                21097: 'Mezza Maratona',
+                42195: 'Maratona'
+            },
+            en: {
+                1500: '1500m',
+                1609: '1 Mile',
+                3000: '3000m',
+                5000: '5K',
+                10000: '10K',
+                21097: 'Half Marathon',
+                42195: 'Marathon'
+            }
+        };
+        
+        const translations = {
+            it: {
+                subtitle: "Misura la tua capacità aerobica massima",
+                step1Label: "Dati Personali",
+                step2Label: "Metodo Test",
+                step3Label: "Risultati",
+                personalInfo: "Informazioni Personali",
+                personalInfoSub: "Inserisci i tuoi dati per una stima accurata",
+                age: "Età",
+                sex: "Sesso",
+                male: "M",
+                female: "F",
+                weight: "Peso (kg)",
+                weightOptional: "Peso (kg) - opzionale",
+                next: "Avanti",
+                selectMethod: "Metodo di Test",
+                selectMethodSub: "Scegli come vuoi stimare il tuo VO2 max",
+                cooperTest: "Test di Cooper",
+                raceTime: "Tempo Gara",
+                cooperDesc: "Corri per 12 minuti alla massima velocità sostenibile e inserisci la distanza percorsa.",
+                distance: "Distanza (metri)",
+                raceDesc: "Inserisci il tuo miglior tempo recente su una delle distanze standard.",
+                raceDistance: "Distanza di Gara",
+                time: "Tempo",
+                hours: "Ore",
+                minutes: "Min",
+                seconds: "Sec",
+                calculate: "Calcola VO2 Max",
+                indicator: "Risultato",
+                predictions: "Tempi",
+                sports: "Sport",
+                targets: "Obiettivi",
+                belowAvg: "Sotto Media",
+                elite: "Elite",
+                whatMeans: "Cosa significa?",
+                vo2Explanation: "Il VO2 max è il massimo volume di ossigeno che il tuo corpo può utilizzare durante l'esercizio intenso. È l'indicatore più affidabile della tua capacità aerobica.",
+                howImprove: "Come migliorare",
+                tip1: "Allenamento intervallato ad alta intensità (HIIT)",
+                tip2: "Corse lunghe a bassa intensità (Zone 2)",
+                tip3: "Tempo run a soglia del lattato",
+                tip4: "Progressione graduale del volume settimanale",
+                tip5: "Cross-training con ciclismo o nuoto",
+                sportsDesc: "Confronto con i requisiti medi per diversi sport:",
+                sportsNote: "I valori variano in base al ruolo e livello.",
+                targetsDesc: "Tempi obiettivo per raggiungere il livello successivo:",
+                shareIG: "Condividi su Instagram",
+                recalculate: "Nuovo Calcolo",
+                percentileText: "Sei nel <strong>{percentile}° percentile</strong> per {sex} della tua età",
+                percentileCanvas: "{percentile}° percentile",
+                maleText: "uomini",
+                femaleText: "donne",
+                poor: "Scarso",
+                belowAverage: "Sotto Media",
+                average: "Nella Media",
+                aboveAverage: "Sopra Media",
+                good: "Buono",
+                excellent: "Eccellente",
+                eliteLabel: "Elite",
+                eliteMessage: "Sei già al livello Elite!",
+                levelBelow: "Sotto Media",
+                levelAmateur: "Amatoriale",
+                levelIntermediate: "Intermedio",
+                levelAdvanced: "Avanzato",
+                levelPro: "Pro",
+                improvement: "da migliorare",
+                errorAgeRequired: "Inserisci la tua età",
+                errorDistanceRequired: "Inserisci la distanza del Test di Cooper",
+                errorTimeRequired: "Inserisci un tempo valido",
+                previousResult: "Rispetto al test precedente:",
+                previousResultHint: "Confronta test fatti con lo stesso metodo e condizioni simili.",
+                racePredictions: "Tempi Gara Previsti",
+                predictionsDesc: "Basati sul tuo VO2 max, ecco i tempi stimati:",
+                predictionsNote: "Le predizioni assumono condizioni ottimali e allenamento specifico.",
+                cooperWarning: "Distanza eccezionale! Il record mondiale è circa 3800m. Verifica il valore inserito.",
+                raceWarning: "Tempo eccezionale! Verifica che sia corretto.",
+                installTitle: "Installa l'App",
+                installDesc: "Aggiungi alla home per accesso rapido",
+                notNow: "Non ora",
+                install: "Installa",
+                paceMin: "min/km",
+                nextTarget: "Prossimo obiettivo",
+                shareTitle: "Il mio VO2 Max",
+                methodLabel: "Metodo",
+                disclaimerEstimate: "Stima: non sostituisce un test di laboratorio.",
+                disclaimerPrivacy: "I risultati vengono salvati solo sul tuo dispositivo.",
+                vo2maxLabel: "VO2 Max",
+                vo2maxEffectiveLabel: "VO2 Max Effettivo",
+                vo2maxTooltip: "Stima basata sulla distanza percorsa in 12 minuti di corsa massimale.",
+                vo2maxEffectiveTooltip: "Stima basata sulla tua performance di gara. Include implicitamente l'economia di corsa e la capacità di sostenere alte intensità. Due atleti con identico VO2 Max di laboratorio possono avere valori effettivi diversi in base alla loro efficienza.",
+                whatIsVo2: "Cos'è il VO2 Max?",
+                whatIsVo2Desc: "Il VO2 Max rappresenta la massima quantità di ossigeno che il tuo corpo può utilizzare durante l'esercizio intenso. È considerato il gold standard per misurare la capacità aerobica e la salute cardiovascolare.",
+                whyMeasure: "Perché misurarlo?",
+                whyMeasure1: "Indicatore chiave di longevità e salute cardiovascolare",
+                whyMeasure2: "Permette di programmare allenamenti più efficaci",
+                whyMeasure3: "Consente di monitorare i progressi nel tempo",
+                whyMeasure4: "Predice le performance nelle gare di endurance",
+                sportsCorrectionNote: "Valore corretto +12% per confronto con benchmark di laboratorio."
+            },
+            en: {
+                subtitle: "Measure your maximum aerobic capacity",
+                step1Label: "Personal Data",
+                step2Label: "Test Method",
+                step3Label: "Results",
+                personalInfo: "Personal Information",
+                personalInfoSub: "Enter your data for an accurate estimate",
+                age: "Age",
+                sex: "Sex",
+                male: "M",
+                female: "F",
+                weight: "Weight (kg)",
+                weightOptional: "Weight (kg) - optional",
+                next: "Next",
+                selectMethod: "Test Method",
+                selectMethodSub: "Choose how to estimate your VO2 max",
+                cooperTest: "Cooper Test",
+                raceTime: "Race Time",
+                cooperDesc: "Run for 12 minutes at maximum sustainable pace and enter the distance covered.",
+                distance: "Distance (meters)",
+                raceDesc: "Enter your best recent time on one of the standard distances.",
+                raceDistance: "Race Distance",
+                time: "Time",
+                hours: "Hours",
+                minutes: "Min",
+                seconds: "Sec",
+                calculate: "Calculate VO2 Max",
+                indicator: "Result",
+                predictions: "Times",
+                sports: "Sports",
+                targets: "Targets",
+                belowAvg: "Below Average",
+                elite: "Elite",
+                whatMeans: "What does it mean?",
+                vo2Explanation: "VO2 max is the maximum volume of oxygen your body can use during intense exercise. It's the most reliable indicator of your aerobic capacity.",
+                howImprove: "How to improve",
+                tip1: "High-intensity interval training (HIIT)",
+                tip2: "Long slow distance runs (Zone 2)",
+                tip3: "Tempo runs at lactate threshold",
+                tip4: "Gradual weekly volume progression",
+                tip5: "Cross-training with cycling or swimming",
+                sportsDesc: "Comparison with average requirements for different sports:",
+                sportsNote: "Values vary based on role and level.",
+                targetsDesc: "Target times to reach the next level:",
+                shareIG: "Share on Instagram",
+                recalculate: "New Calculation",
+                percentileText: "You're in the <strong>{percentile}th percentile</strong> for {sex} your age",
+                percentileCanvas: "{percentile}th percentile",
+                maleText: "men",
+                femaleText: "women",
+                poor: "Poor",
+                belowAverage: "Below Average",
+                average: "Average",
+                aboveAverage: "Above Average",
+                good: "Good",
+                excellent: "Excellent",
+                eliteLabel: "Elite",
+                eliteMessage: "You're already at Elite level!",
+                levelBelow: "Below Avg",
+                levelAmateur: "Amateur",
+                levelIntermediate: "Intermediate",
+                levelAdvanced: "Advanced",
+                levelPro: "Pro",
+                improvement: "to improve",
+                errorAgeRequired: "Please enter your age",
+                errorDistanceRequired: "Please enter the Cooper Test distance",
+                errorTimeRequired: "Please enter a valid time",
+                previousResult: "Compared to previous test:",
+                previousResultHint: "Compare tests done with the same method and similar conditions.",
+                racePredictions: "Predicted Race Times",
+                predictionsDesc: "Based on your VO2 max, here are estimated times:",
+                predictionsNote: "Predictions assume optimal conditions and specific training.",
+                cooperWarning: "Exceptional distance! World record is about 3800m. Please verify the value.",
+                raceWarning: "Exceptional time! Please verify.",
+                installTitle: "Install App",
+                installDesc: "Add to home screen for quick access",
+                notNow: "Not now",
+                install: "Install",
+                paceMin: "min/km",
+                nextTarget: "Next target",
+                shareTitle: "My VO2 Max",
+                methodLabel: "Method",
+                disclaimerEstimate: "Estimate: does not replace a laboratory test.",
+                disclaimerPrivacy: "Results are saved only on your device.",
+                vo2maxLabel: "VO2 Max",
+                vo2maxEffectiveLabel: "Effective VO2 Max",
+                vo2maxTooltip: "Estimate based on the distance covered in a 12-minute maximal run.",
+                vo2maxEffectiveTooltip: "Estimate based on your race performance. It implicitly accounts for running economy and your ability to sustain high intensities. Two athletes with identical lab VO2 Max may have different effective values based on their efficiency.",
+                whatIsVo2: "What is VO2 Max?",
+                whatIsVo2Desc: "VO2 Max represents the maximum amount of oxygen your body can use during intense exercise. It's considered the gold standard for measuring aerobic capacity and cardiovascular health.",
+                whyMeasure: "Why measure it?",
+                whyMeasure1: "Key indicator of longevity and cardiovascular health",
+                whyMeasure2: "Enables more effective training programming",
+                whyMeasure3: "Allows tracking progress over time",
+                whyMeasure4: "Predicts performance in endurance events",
+                sportsCorrectionNote: "Value adjusted +12% for comparison with laboratory benchmarks."
+            }
+        };
+        
+        const vo2Norms = {
+            male: {
+                20: { 10: 32, 25: 37, 50: 42, 75: 48, 90: 55, 95: 60 },
+                30: { 10: 30, 25: 35, 50: 40, 75: 46, 90: 52, 95: 57 },
+                40: { 10: 27, 25: 32, 50: 37, 75: 43, 90: 49, 95: 54 },
+                50: { 10: 24, 25: 29, 50: 34, 75: 40, 90: 46, 95: 51 },
+                60: { 10: 21, 25: 26, 50: 31, 75: 37, 90: 43, 95: 48 },
+                70: { 10: 18, 25: 23, 50: 28, 75: 34, 90: 40, 95: 45 }
+            },
+            female: {
+                20: { 10: 27, 25: 31, 50: 36, 75: 42, 90: 48, 95: 53 },
+                30: { 10: 25, 25: 29, 50: 34, 75: 40, 90: 46, 95: 51 },
+                40: { 10: 23, 25: 27, 50: 32, 75: 38, 90: 44, 95: 49 },
+                50: { 10: 20, 25: 24, 50: 29, 75: 35, 90: 41, 95: 46 },
+                60: { 10: 17, 25: 21, 50: 26, 75: 32, 90: 38, 95: 43 },
+                70: { 10: 15, 25: 19, 50: 24, 75: 30, 90: 36, 95: 41 }
+            }
+        };
+        
+        const worldRecords = { 1500: 206, 1609: 223, 3000: 440, 5000: 755, 10000: 1577, 21097: 3456, 42195: 7260 };
+        
+        const sportRequirements = {
+            // Values based on peer-reviewed literature (min: recreational, avg: competitive, max: elite)
+            calcio: { name: { it: 'Calcio', en: 'Soccer' }, min: 52, avg: 60, max: 70 }, // Stølen et al. 2005
+            basket: { name: { it: 'Basket', en: 'Basketball' }, min: 42, avg: 50, max: 58 }, // Ziv & Lidor 2009
+            pallavolo: { name: { it: 'Pallavolo', en: 'Volleyball' }, min: 38, avg: 46, max: 55 }, // Sheppard et al. 2009
+            rugby: { name: { it: 'Rugby', en: 'Rugby' }, min: 45, avg: 52, max: 62 }, // Duthie et al. 2003
+            tennis: { name: { it: 'Tennis', en: 'Tennis' }, min: 44, avg: 52, max: 60 }, // Kovacs 2007
+            ciclismo: { name: { it: 'Ciclismo', en: 'Cycling' }, min: 55, avg: 70, max: 85 }, // Lucía et al. 2001
+            triathlon: { name: { it: 'Triathlon', en: 'Triathlon' }, min: 55, avg: 70, max: 85 }, // O'Toole 1995
+            maratona: { name: { it: 'Maratona', en: 'Marathon' }, min: 50, avg: 65, max: 80 }, // Joyner & Coyle 2008
+            crossfit: { name: { it: 'CrossFit', en: 'CrossFit' }, min: 48, avg: 56, max: 65 } // Bellar et al. 2015
+        };
+        
+        // Initialize radio button visual state
+        function initRadioButtons() {
+            document.querySelectorAll('.radio-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const group = this.closest('.radio-group');
+                    group.querySelectorAll('.radio-option').forEach(o => o.classList.remove('selected'));
+                    this.classList.add('selected');
+                    this.querySelector('input').checked = true;
+                });
+            });
+        }
+        
+        // Field error helpers
+        function setFieldError(inputEl, messageKey) {
+            const t = translations[currentLang];
+            const errorEl = inputEl.parentElement.querySelector('.field-error');
+            if (errorEl) {
+                errorEl.textContent = t[messageKey] || messageKey;
+                errorEl.classList.add('show');
+            }
+            inputEl.classList.add('input-error');
+        }
+        
+        function clearFieldError(inputEl) {
+            const errorEl = inputEl.parentElement.querySelector('.field-error');
+            if (errorEl) {
+                errorEl.classList.remove('show');
+            }
+            inputEl.classList.remove('input-error');
+        }
+        
+        function setTimeGroupError(messageKey) {
+            const t = translations[currentLang];
+            const errorEl = document.getElementById('raceTimeError');
+            if (errorEl) {
+                errorEl.textContent = t[messageKey] || messageKey;
+                errorEl.classList.add('show');
+            }
+            document.getElementById('raceHours').classList.add('input-error');
+            document.getElementById('raceMinutes').classList.add('input-error');
+            document.getElementById('raceSeconds').classList.add('input-error');
+        }
+        
+        function clearTimeGroupError() {
+            const errorEl = document.getElementById('raceTimeError');
+            if (errorEl) {
+                errorEl.classList.remove('show');
+            }
+            document.getElementById('raceHours').classList.remove('input-error');
+            document.getElementById('raceMinutes').classList.remove('input-error');
+            document.getElementById('raceSeconds').classList.remove('input-error');
+        }
+        
+        function clearAllFieldErrors() {
+            document.querySelectorAll('.field-error').forEach(el => el.classList.remove('show'));
+            document.querySelectorAll('.input-error').forEach(el => el.classList.remove('input-error'));
+        }
+        
+        // PWA Install
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+        });
+        
+        function showInstallPromptIfReady() {
+            if (deferredPrompt && !localStorage.getItem('installDismissed')) {
+                setTimeout(() => document.getElementById('installPrompt').classList.add('show'), 1500);
+            }
+        }
+        
+        function installApp() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then(() => {
+                    deferredPrompt = null;
+                    document.getElementById('installPrompt').classList.remove('show');
+                });
+            }
+        }
+        
+        function dismissInstall() {
+            document.getElementById('installPrompt').classList.remove('show');
+            localStorage.setItem('installDismissed', 'true');
+        }
+        
+        function validateCooper() {
+            const distance = parseFloat(document.getElementById('cooperDistance').value);
+            const warning = document.getElementById('cooperWarning');
+            const input = document.getElementById('cooperDistance');
+            if (distance > 3500) { warning.classList.add('show'); input.classList.add('warning'); }
+            else { warning.classList.remove('show'); input.classList.remove('warning'); }
+        }
+        
+        function validateRaceTime() {
+            clearTimeGroupError();
+            const distance = parseInt(document.getElementById('raceDistance').value);
+            const hours = parseInt(document.getElementById('raceHours').value) || 0;
+            const minutes = parseInt(document.getElementById('raceMinutes').value) || 0;
+            const seconds = parseInt(document.getElementById('raceSeconds').value) || 0;
+            const totalSeconds = hours * 3600 + minutes * 60 + seconds;
+            const warning = document.getElementById('raceWarning');
+            if (totalSeconds > 0 && totalSeconds < worldRecords[distance] * 1.2) warning.classList.add('show');
+            else warning.classList.remove('show');
+        }
+        
+        function updateRaceDistanceOptions() {
+            const select = document.getElementById('raceDistance');
+            const labels = raceDistanceLabels[currentLang];
+            Array.from(select.options).forEach(option => {
+                const value = option.value;
+                if (labels[value]) {
+                    option.textContent = labels[value];
+                }
+            });
+        }
+        
+        function toggleLanguage() {
+            currentLang = currentLang === 'it' ? 'en' : 'it';
+            document.documentElement.lang = currentLang;
+            document.getElementById('langLabel').textContent = currentLang === 'it' ? 'EN' : 'IT';
+            updateTranslations();
+        }
+        
+        function updateTranslations() {
+            const t = translations[currentLang];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) {
+                    if (el.tagName === 'INPUT') {
+                        el.placeholder = t[key];
+                    } else {
+                        el.textContent = t[key];
+                    }
+                }
+            });
+            updateRaceDistanceOptions();
+            if (currentStep === 3 && calculatedVO2 > 0) {
+                updatePercentileText();
+                updateVO2Absolute();
+                updateVO2TypeLabel();
+                renderPredictions();
+                renderSports();
+                renderTargets();
+            }
+        }
+        
+        function goToStep(step) {
+            clearAllFieldErrors();
+            
+            if (step === 2 && currentStep === 1) {
+                const ageInput = document.getElementById('age');
+                if (!ageInput.value) {
+                    setFieldError(ageInput, 'errorAgeRequired');
+                    ageInput.focus();
+                    return;
+                }
+            }
+            currentStep = step;
+            for (let i = 1; i <= 3; i++) {
+                const indicator = document.getElementById(`step${i}-indicator`);
+                const stepEl = document.getElementById(`step${i}`);
+                indicator.classList.remove('active', 'completed');
+                indicator.removeAttribute('aria-current');
+                stepEl.classList.remove('active');
+                if (i < step) indicator.classList.add('completed');
+                else if (i === step) { 
+                    indicator.classList.add('active'); 
+                    indicator.setAttribute('aria-current', 'step');
+                    stepEl.classList.add('active'); 
+                }
+            }
+            document.getElementById('line1').classList.toggle('active', step > 1);
+            document.getElementById('line2').classList.toggle('active', step > 2);
+            document.getElementById('progressLabel').textContent = translations[currentLang][['step1Label', 'step2Label', 'step3Label'][step - 1]];
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            if (step === 3) {
+                showInstallPromptIfReady();
+            }
+        }
+        
+        function switchMethod(method) {
+            currentMethod = method;
+            clearAllFieldErrors();
+            document.querySelectorAll('#step2 .tab-btn').forEach((btn, i) => {
+                const isActive = ['cooper', 'race'][i] === method;
+                btn.classList.toggle('active', isActive);
+                btn.setAttribute('aria-selected', isActive);
+            });
+            document.querySelectorAll('#step2 .tab-content').forEach(c => c.classList.remove('active'));
+            document.getElementById(`method-${method}`).classList.add('active');
+        }
+        
+        function switchResultTab(tab) {
+            currentResultTab = tab;
+            document.querySelectorAll('#step3 .tab-btn').forEach((btn, i) => {
+                const isActive = ['indicator', 'predictions', 'sports', 'targets'][i] === tab;
+                btn.classList.toggle('active', isActive);
+                btn.setAttribute('aria-selected', isActive);
+            });
+            document.querySelectorAll('#step3 .tab-content').forEach(c => c.classList.remove('active'));
+            document.getElementById(`result-${tab}`).classList.add('active');
+        }
+        
+        function calculateVO2() {
+            clearAllFieldErrors();
+            clearTimeGroupError();
+            
+            userAge = parseInt(document.getElementById('age').value);
+            userSex = document.querySelector('input[name="sex"]:checked').value;
+            userWeight = parseFloat(document.getElementById('weight').value) || 0;
+            let vo2 = 0;
+            
+            if (currentMethod === 'cooper') {
+                const distanceInput = document.getElementById('cooperDistance');
+                const distance = parseFloat(distanceInput.value);
+                if (!distance) {
+                    setFieldError(distanceInput, 'errorDistanceRequired');
+                    distanceInput.focus();
+                    return;
+                }
+                vo2 = (distance - 504.9) / 44.73;
+                testMethodInfo = { method: 'cooper', value: `${Math.round(distance)}m / 12:00` };
+            } else {
+                const raceDist = parseInt(document.getElementById('raceDistance').value);
+                const hours = parseInt(document.getElementById('raceHours').value) || 0;
+                const minutes = parseInt(document.getElementById('raceMinutes').value) || 0;
+                const seconds = parseInt(document.getElementById('raceSeconds').value) || 0;
+                const totalSeconds = hours * 3600 + minutes * 60 + seconds;
+                
+                if (totalSeconds === 0) {
+                    setTimeGroupError('errorTimeRequired');
+                    document.getElementById('raceMinutes').focus();
+                    return;
+                }
+                const velocity = raceDist / (totalSeconds / 60);
+                const percentVO2 = getPercentVO2(raceDist);
+                vo2 = (0.000104 * velocity * velocity + 0.182258 * velocity - 4.6) / (percentVO2 / 100);
+                
+                const distLabel = raceDistanceLabels[currentLang][raceDist];
+                const timeStr = hours > 0 
+                    ? `${hours}:${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`
+                    : `${minutes}:${seconds.toString().padStart(2,'0')}`;
+                testMethodInfo = { method: 'race', value: `${distLabel}: ${timeStr}` };
+            }
+            
+            calculatedVO2 = Math.max(15, Math.min(VO2_MAX, vo2));
+            
+            const previousVO2 = localStorage.getItem('lastVO2');
+            localStorage.setItem('lastVO2', calculatedVO2.toFixed(1));
+            localStorage.setItem('lastVO2Date', new Date().toISOString());
+            
+            goToStep(3);
+            displayResults(calculatedVO2, userAge, userSex, previousVO2);
+        }
+        
+        function getPercentVO2(distance) {
+            if (distance <= 1609) return 98;
+            if (distance <= 3000) return 95;
+            if (distance <= 5000) return 93;
+            if (distance <= 10000) return 90;
+            if (distance <= 21097) return 85;
+            return 80;
+        }
+        
+        function updateVO2Absolute() {
+            const el = document.getElementById('vo2Absolute');
+            if (userWeight > 0) {
+                const vo2Abs = (calculatedVO2 * userWeight) / 1000;
+                el.textContent = `≈ ${vo2Abs.toFixed(2)} L/min (${Math.round(userWeight)} kg)`;
+                el.classList.remove('hidden');
+            } else {
+                el.classList.add('hidden');
+            }
+        }
+        
+        function updateVO2TypeLabel() {
+            const t = translations[currentLang];
+            const label = document.getElementById('vo2TypeLabel');
+            const isEffective = testMethodInfo.method === 'race';
+            label.textContent = isEffective ? t.vo2maxEffectiveLabel : t.vo2maxLabel;
+        }
+        
+        function showTooltip() {
+            const t = translations[currentLang];
+            const isEffective = testMethodInfo.method === 'race';
+            document.getElementById('tooltipText').textContent = isEffective ? t.vo2maxEffectiveTooltip : t.vo2maxTooltip;
+            document.getElementById('tooltipPopup').classList.remove('hidden');
+        }
+        
+        function closeTooltip() {
+            document.getElementById('tooltipPopup').classList.add('hidden');
+        }
+        
+        function displayResults(vo2, age, sex, previousVO2) {
+            const gaugeFill = document.getElementById('gaugeFill');
+            setTimeout(() => { gaugeFill.style.strokeDashoffset = 283 * (1 - Math.min(vo2 / VO2_MAX, 1)); }, 100);
+            
+            const vo2Display = document.getElementById('vo2Value');
+            animateNumber(vo2Display, 0, vo2, 1000);
+            
+            const category = getCategory(vo2, age, sex);
+            const badge = document.getElementById('categoryBadge');
+            badge.textContent = category.label;
+            badge.className = 'category-badge ' + category.class;
+            
+            if (previousVO2) {
+                const delta = vo2 - parseFloat(previousVO2);
+                document.getElementById('previousResult').classList.remove('hidden');
+                const deltaEl = document.getElementById('previousDelta');
+                deltaEl.textContent = (delta >= 0 ? '+' : '') + delta.toFixed(1);
+                deltaEl.className = 'previous-delta ' + (delta >= 0 ? 'positive' : 'negative');
+            }
+            
+            updateVO2Absolute();
+            updateVO2TypeLabel();
+            closeTooltip();
+            
+            setTimeout(() => { document.getElementById('percentileMarker').style.left = `${getPercentile(vo2, age, sex)}%`; }, 100);
+            updatePercentileText();
+            renderPredictions();
+            renderSports();
+            renderTargets();
+        }
+        
+        function updatePercentileText() {
+            const t = translations[currentLang];
+            document.getElementById('percentileText').innerHTML = t.percentileText.replace('{percentile}', Math.round(getPercentile(calculatedVO2, userAge, userSex))).replace('{sex}', userSex === 'male' ? t.maleText : t.femaleText);
+        }
+        
+        function animateNumber(element, start, end, duration) {
+            const startTime = performance.now();
+            function update(currentTime) {
+                const progress = Math.min((currentTime - startTime) / duration, 1);
+                element.textContent = (start + (end - start) * (1 - Math.pow(1 - progress, 3))).toFixed(1);
+                if (progress < 1) requestAnimationFrame(update);
+            }
+            requestAnimationFrame(update);
+        }
+        
+        function getCategory(vo2, age, sex) {
+            const t = translations[currentLang];
+            const norms = getNormsForAge(age, sex);
+            if (vo2 < norms[10]) return { label: t.poor, class: 'category-poor' };
+            if (vo2 < norms[25]) return { label: t.belowAverage, class: 'category-poor' };
+            if (vo2 < norms[50]) return { label: t.average, class: 'category-fair' };
+            if (vo2 < norms[75]) return { label: t.aboveAverage, class: 'category-good' };
+            if (vo2 < norms[90]) return { label: t.good, class: 'category-good' };
+            if (vo2 < norms[95]) return { label: t.excellent, class: 'category-excellent' };
+            return { label: t.eliteLabel, class: 'category-elite' };
+        }
+        
+        function getPercentile(vo2, age, sex) {
+            const norms = getNormsForAge(age, sex);
+            if (vo2 <= norms[10]) return 10 * (vo2 / norms[10]);
+            if (vo2 <= norms[25]) return 10 + 15 * ((vo2 - norms[10]) / (norms[25] - norms[10]));
+            if (vo2 <= norms[50]) return 25 + 25 * ((vo2 - norms[25]) / (norms[50] - norms[25]));
+            if (vo2 <= norms[75]) return 50 + 25 * ((vo2 - norms[50]) / (norms[75] - norms[50]));
+            if (vo2 <= norms[90]) return 75 + 15 * ((vo2 - norms[75]) / (norms[90] - norms[75]));
+            if (vo2 <= norms[95]) return 90 + 5 * ((vo2 - norms[90]) / (norms[95] - norms[90]));
+            return Math.min(99, 95 + 4 * ((vo2 - norms[95]) / 10));
+        }
+        
+        function getNormsForAge(age, sex) {
+            const sexNorms = vo2Norms[sex];
+            if (age < 20) return sexNorms[20];
+            if (age >= 70) return sexNorms[70];
+            const ages = [20, 30, 40, 50, 60, 70];
+            for (let i = 0; i < ages.length - 1; i++) {
+                if (age >= ages[i] && age < ages[i + 1]) {
+                    const ratio = (age - ages[i]) / 10;
+                    const result = {};
+                    for (const p of [10, 25, 50, 75, 90, 95]) result[p] = sexNorms[ages[i]][p] + ratio * (sexNorms[ages[i + 1]][p] - sexNorms[ages[i]][p]);
+                    return result;
+                }
+            }
+            return sexNorms[40];
+        }
+        
+        function renderPredictions() {
+            const t = translations[currentLang];
+            const container = document.getElementById('predictionsGrid');
+            const distances = [{ value: 5000, name: '5K' }, { value: 10000, name: '10K' }, { value: 21097, name: currentLang === 'it' ? 'Mezza' : 'Half' }, { value: 42195, name: currentLang === 'it' ? 'Maratona' : 'Marathon' }];
+            container.innerHTML = distances.map(dist => {
+                const time = calculateTargetTime(calculatedVO2, dist.value);
+                return `<div class="prediction-card"><div class="prediction-distance">${dist.name}</div><div class="prediction-time">${formatTime(time)}</div><div class="prediction-pace">${formatPace((time / 60) / (dist.value / 1000))} ${t.paceMin}</div></div>`;
+            }).join('');
+        }
+        
+        function formatPace(minPerKm) {
+            const mins = Math.floor(minPerKm);
+            return `${mins}:${Math.round((minPerKm - mins) * 60).toString().padStart(2, '0')}`;
+        }
+        
+        function renderSports() {
+            const t = translations[currentLang];
+            const container = document.getElementById('sportsList');
+            const correctionNote = document.getElementById('sportsCorrectionNote');
+            
+            // Apply +12% correction for race time method (effective VO2 is typically lower than lab VO2)
+            const isRaceMethod = testMethodInfo.method === 'race';
+            const vo2ForComparison = isRaceMethod ? calculatedVO2 * 1.12 : calculatedVO2;
+            
+            // Show/hide correction note
+            if (isRaceMethod) {
+                correctionNote.classList.remove('hidden');
+            } else {
+                correctionNote.classList.add('hidden');
+            }
+            
+            container.innerHTML = Object.entries(sportRequirements).map(([key, sport]) => {
+                const percentage = Math.min((vo2ForComparison / sport.avg) * 100, 100);
+                let level, levelClass;
+                if (vo2ForComparison < sport.min * 0.8) { level = t.levelBelow; levelClass = 'level-below'; }
+                else if (vo2ForComparison < sport.min) { level = t.levelAmateur; levelClass = 'level-amateur'; }
+                else if (vo2ForComparison < sport.avg) { level = t.levelIntermediate; levelClass = 'level-intermediate'; }
+                else if (vo2ForComparison < sport.max) { level = t.levelAdvanced; levelClass = 'level-advanced'; }
+                else { level = t.levelPro; levelClass = 'level-pro'; }
+                const colors = { 'level-below': 'var(--level-poor)', 'level-amateur': 'var(--level-fair)', 'level-intermediate': 'var(--level-good)', 'level-advanced': 'var(--level-excellent)', 'level-pro': 'var(--level-elite)' };
+                return `<div class="sport-item"><div class="sport-header"><span class="sport-name">${sport.name[currentLang]}</span><span class="sport-level ${levelClass}">${level}</span></div><div class="sport-bar"><div class="sport-bar-fill" style="width: ${percentage}%; background: ${colors[levelClass]};"></div></div></div>`;
+            }).join('');
+        }
+        
+        function renderTargets() {
+            const t = translations[currentLang];
+            const container = document.getElementById('targetsList');
+            const norms = getNormsForAge(userAge, userSex);
+            const raceDist = currentMethod === 'race' ? parseInt(document.getElementById('raceDistance').value) : 5000;
+            const distNames = { 1500: '1500m', 1609: '1 Mile', 3000: '3K', 5000: '5K', 10000: '10K', 21097: currentLang === 'it' ? 'Mezza' : 'Half', 42195: currentLang === 'it' ? 'Maratona' : 'Marathon' };
+            const levels = [{ name: t.average, vo2: norms[50] }, { name: t.good, vo2: norms[75] }, { name: t.excellent, vo2: norms[90] }, { name: t.eliteLabel, vo2: norms[95] }];
+            
+            nextLevelTarget = null;
+            let html = '';
+            for (const level of levels) {
+                if (level.vo2 <= calculatedVO2) continue;
+                if (!nextLevelTarget) nextLevelTarget = { level: level.name, time: formatTime(calculateTargetTime(level.vo2, raceDist)), distance: distNames[raceDist], vo2: level.vo2 };
+                const targetTime = calculateTargetTime(level.vo2, raceDist);
+                const diff = calculateTargetTime(calculatedVO2, raceDist) - targetTime;
+                html += `<div class="target-card"><div class="target-header"><span class="target-level">${level.name}</span><span class="target-vo2">≥ ${level.vo2.toFixed(0)} ml/kg/min</span></div><div class="target-time">${formatTime(targetTime)} ${distNames[raceDist]}</div><div class="target-diff">-${formatTime(diff)} ${t.improvement}</div></div>`;
+            }
+            container.innerHTML = html || `<p class="info-text" style="text-align: center; color: var(--accent-gold);">${t.eliteMessage}</p>`;
+        }
+        
+        function calculateTargetTime(targetVO2, distance) {
+            const vo2AtPace = targetVO2 * (getPercentVO2(distance) / 100);
+            const velocity = (-0.182258 + Math.sqrt(0.182258 * 0.182258 + 4 * 0.000104 * (vo2AtPace + 4.6))) / (2 * 0.000104);
+            return (distance / velocity) * 60;
+        }
+        
+        function formatTime(seconds) {
+            const h = Math.floor(seconds / 3600);
+            const m = Math.floor((seconds % 3600) / 60);
+            const s = Math.round(seconds % 60);
+            return h > 0 ? `${h}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}` : `${m}:${s.toString().padStart(2, '0')}`;
+        }
+        
+        function resetCalculator() {
+            calculatedVO2 = 0;
+            userWeight = 0;
+            testMethodInfo = { method: '', value: '' };
+            clearAllFieldErrors();
+            switchMethod('cooper');
+            goToStep(1);
+            ['age', 'weight', 'cooperDistance'].forEach(id => document.getElementById(id).value = '');
+            document.getElementById('raceHours').value = '';
+            document.getElementById('raceMinutes').value = '';
+            document.getElementById('raceSeconds').value = '';
+            document.getElementById('gaugeFill').style.strokeDashoffset = '283';
+            document.getElementById('vo2Value').textContent = '--';
+            document.getElementById('vo2Absolute').classList.add('hidden');
+            document.getElementById('previousResult').classList.add('hidden');
+            document.getElementById('vo2TypeLabel').textContent = 'VO2 Max';
+            document.getElementById('sportsCorrectionNote').classList.add('hidden');
+            closeTooltip();
+            
+            // Reset radio buttons
+            document.getElementById('radio-male').classList.add('selected');
+            document.getElementById('radio-female').classList.remove('selected');
+            document.querySelector('input[value="male"]').checked = true;
+        }
+        
+        async function shareResults() {
+            const canvas = document.getElementById('shareCanvas');
+            const ctx = canvas.getContext('2d');
+            const t = translations[currentLang];
+            
+            canvas.width = 1080;
+            canvas.height = 1920;
+            
+            // Background
+            ctx.fillStyle = '#0a0a0a';
+            ctx.fillRect(0, 0, 1080, 1920);
+            
+            // Gold gradient glow
+            const gradient = ctx.createRadialGradient(540, 500, 0, 540, 500, 500);
+            gradient.addColorStop(0, 'rgba(201, 162, 39, 0.15)');
+            gradient.addColorStop(1, 'transparent');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 1080, 1920);
+            
+            // Top decorative line
+            ctx.strokeStyle = 'rgba(201, 162, 39, 0.4)';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(200, 180);
+            ctx.lineTo(880, 180);
+            ctx.stroke();
+            
+            // Title - show type based on method
+            const isEffective = testMethodInfo.method === 'race';
+            const vo2TypeTitle = isEffective ? (currentLang === 'it' ? 'VO2 MAX EFFETTIVO' : 'EFFECTIVE VO2 MAX') : 'VO2 MAX';
+            ctx.fillStyle = '#c9a227';
+            ctx.font = isEffective ? 'bold 48px Georgia, serif' : 'bold 56px Georgia, serif';
+            ctx.textAlign = 'center';
+            ctx.fillText(vo2TypeTitle, 540, 280);
+            
+            // Main value
+            ctx.fillStyle = '#f5f5f5';
+            ctx.font = 'bold 180px Georgia, serif';
+            ctx.fillText(calculatedVO2.toFixed(1), 540, 500);
+            
+            ctx.fillStyle = '#888888';
+            ctx.font = '32px Arial, sans-serif';
+            ctx.fillText('ml/kg/min', 540, 560);
+            
+            // Method info
+            const methodLabel = testMethodInfo.method === 'cooper' ? 'Cooper' : testMethodInfo.value.split(':')[0];
+            const methodValue = testMethodInfo.method === 'cooper' ? testMethodInfo.value : testMethodInfo.value.split(': ')[1];
+            ctx.fillStyle = '#666666';
+            ctx.font = '24px Arial, sans-serif';
+            ctx.fillText(`${t.methodLabel}: ${methodLabel} ${methodValue ? '(' + methodValue + ')' : ''}`, 540, 610);
+            
+            // VO2 Absolute
+            let yOffset = 660;
+            if (userWeight > 0) {
+                const vo2Abs = (calculatedVO2 * userWeight) / 1000;
+                ctx.fillStyle = '#666666';
+                ctx.font = '26px Arial, sans-serif';
+                ctx.fillText(`≈ ${vo2Abs.toFixed(2)} L/min (${Math.round(userWeight)} kg)`, 540, yOffset);
+                yOffset += 50;
+            }
+            
+            // Category badge
+            const category = getCategory(calculatedVO2, userAge, userSex);
+            ctx.fillStyle = '#c9a227';
+            ctx.font = 'bold 48px Georgia, serif';
+            ctx.fillText(category.label.toUpperCase(), 540, yOffset + 40);
+            
+            // Percentile - localized
+            const percentile = Math.round(getPercentile(calculatedVO2, userAge, userSex));
+            const percentileText = t.percentileCanvas.replace('{percentile}', percentile);
+            ctx.fillStyle = '#888888';
+            ctx.font = '28px Arial, sans-serif';
+            ctx.fillText(percentileText, 540, yOffset + 100);
+            
+            // Divider
+            ctx.strokeStyle = 'rgba(201, 162, 39, 0.3)';
+            ctx.beginPath();
+            ctx.moveTo(300, yOffset + 160);
+            ctx.lineTo(780, yOffset + 160);
+            ctx.stroke();
+            
+            // Race predictions
+            const predStartY = yOffset + 240;
+            ctx.fillStyle = '#666666';
+            ctx.font = '24px Arial, sans-serif';
+            ctx.fillText(t.racePredictions.toUpperCase(), 540, predStartY);
+            
+            const predictions = [
+                { name: '5K', time: calculateTargetTime(calculatedVO2, 5000) },
+                { name: '10K', time: calculateTargetTime(calculatedVO2, 10000) },
+                { name: currentLang === 'it' ? 'MEZZA' : 'HALF', time: calculateTargetTime(calculatedVO2, 21097) },
+                { name: currentLang === 'it' ? 'MARATONA' : 'MARATHON', time: calculateTargetTime(calculatedVO2, 42195) }
+            ];
+            
+            predictions.forEach((pred, i) => {
+                const y = predStartY + 80 + i * 90;
+                ctx.fillStyle = '#666666';
+                ctx.font = '24px Arial, sans-serif';
+                ctx.textAlign = 'left';
+                ctx.fillText(pred.name, 240, y);
+                ctx.fillStyle = '#f5f5f5';
+                ctx.font = 'bold 36px Georgia, serif';
+                ctx.textAlign = 'right';
+                ctx.fillText(formatTime(pred.time), 840, y);
+            });
+            
+            // Next target section
+            const targetY = predStartY + 80 + 4 * 90 + 60;
+            if (nextLevelTarget) {
+                ctx.strokeStyle = 'rgba(201, 162, 39, 0.3)';
+                ctx.beginPath();
+                ctx.moveTo(300, targetY);
+                ctx.lineTo(780, targetY);
+                ctx.stroke();
+                
+                ctx.fillStyle = '#666666';
+                ctx.font = '24px Arial, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText(t.nextTarget.toUpperCase() + ': ' + nextLevelTarget.level.toUpperCase(), 540, targetY + 60);
+                
+                ctx.fillStyle = '#c9a227';
+                ctx.font = 'bold 40px Georgia, serif';
+                ctx.fillText(nextLevelTarget.time + ' ' + nextLevelTarget.distance, 540, targetY + 120);
+            }
+            
+            // Bottom branding
+            ctx.strokeStyle = 'rgba(201, 162, 39, 0.4)';
+            ctx.beginPath();
+            ctx.moveTo(200, 1760);
+            ctx.lineTo(880, 1760);
+            ctx.stroke();
+            
+            ctx.fillStyle = '#c9a227';
+            ctx.font = '28px Georgia, serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('@nicholasrubini', 540, 1820);
+            ctx.fillText('nicholasrubini.it', 540, 1865);
+            
+            canvas.toBlob(async (blob) => {
+                const file = new File([blob], 'vo2max-result.png', { type: 'image/png' });
+                if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+                    try { 
+                        await navigator.share({ 
+                            files: [file], 
+                            title: t.shareTitle
+                        }); 
+                    }
+                    catch (err) { if (err.name !== 'AbortError') downloadImage(canvas); }
+                } else downloadImage(canvas);
+            }, 'image/png', 1.0);
+        }
+        
+        function downloadImage(canvas) {
+            const link = document.createElement('a');
+            link.download = 'vo2max-result.png';
+            link.href = canvas.toDataURL('image/png', 1.0);
+            link.click();
+        }
+        
+        // Prevent pull-to-refresh on iOS
+        document.body.addEventListener('touchmove', function(e) {
+            if (e.target.closest('.card') && e.target.closest('.card').scrollTop === 0) {
+                // Allow default behavior
+            }
+        }, { passive: true });
+        
+        // Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                const sw = `self.addEventListener('install', () => self.skipWaiting()); self.addEventListener('fetch', e => e.respondWith(fetch(e.request).catch(() => caches.match(e.request))));`;
+                navigator.serviceWorker.register(URL.createObjectURL(new Blob([sw], { type: 'application/javascript' }))).catch(() => {});
+            });
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            document.documentElement.lang = currentLang;
+            initRadioButtons();
+            updateTranslations();
+            
+            // Tooltip trigger
+            document.getElementById('tooltipTrigger').addEventListener('click', showTooltip);
+            
+            // Prevent double-tap zoom on buttons
+            document.querySelectorAll('button, .btn, .tab-btn, .radio-option').forEach(el => {
+                el.addEventListener('touchend', (e) => {
+                    e.preventDefault();
+                    e.target.click();
+                }, { passive: false });
+            });
+        });
+    </script>
+</body>
+</html>
